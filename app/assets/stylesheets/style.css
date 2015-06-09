@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+html{
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+}
+body{
+	background: #090;
+}
+a{
+	text-decoration: none;
+}
+
+#container{
+	position: absolute;
+	top: 30px;
+	left: 0px;
+	text-align: center;
+	width: 100%;	
+}
+
+#logo{
+	background: #fff;
+	margin-bottom: 30px;	
+}
+#caixa_branca{
+	height: 400px;
+	background: #FFF;
+	padding-top: 30px;
+}
+
+#selecao_flores{
+	min-height: 600px;
+	background: #FFF;
+	padding-top: 30px;
+	padding-bottom: 20px;	
+}
+
+#lista_produtos{
+	display: inline-block;
+}
+
+#login{
+	height: 400px;
+	background: #FFF;
+	padding-top: 30px;
+	font-weight: 700;
+}
+
+.flor{
+	width: 200px;
+	height: 200px;
+}
+
+.flor:focus{
+	width: 200px;
+	height: 200px;
+}
+
+#separacao_01{
+	background: url("/assets/fundo_001.jpg") fixed;
+	height: 400px;
+	width: 100%;
+}
+#separacao_02{
+	background: url("/assets/fundo_002.jpg") fixed;
+	height: 400px;
+	width: 100%;
+}
+#cadastro_dados{
+	min-height: 600px;
+	background: #FFF;	
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+.campo_form{
+	width: 600px;
+	margin: auto;
+	margin-bottom: 30px;
+}
+.big_button{
+	color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	background: rgb(28, 184, 65);
+	width: 200px;
+	height: 100px;
+	font-size: 24px;
+	cursor: pointer;	
+}
+
+.moldura_produtos{
+	width: 250px;
+	float: left;
+	margin: 10px;
+	margin-bottom: 30px;
+}
+.check_produtos{
+	width: 100px;
+	height: 20px;
+}
+#confirmacao_floricultura{
+	height: 600px;
+	background: #FFF;	
+	padding-top: 30px;
+}
+#conferir_dados{
+	min-height: 600px;
+	background: #FFF;	
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+#tabela_floriculturistas{
+	width: 90%;
+}
+#tabela_floriculturistas th{
+	background-color: #3DAC3B;
+}
+#tabela_floriculturistas tr:nth-child(odd) td{
+	background-color: #3DAC3B;
+}
+#tabela_floriculturistas tr:nth-child(even) td{
+	background-color: #AFFEAD;
+}
+.accept_button{
+	color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	background: rgb(28, 184, 65);
+	width: 100px;
+	height: 30px;
+	font-size: 12px;
+	cursor: pointer;	
+}
+.refuse_button{
+	color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	background: #9C0909;
+	width: 100px;
+	height: 30px;
+	font-size: 12px;
+	cursor: pointer;	
+}
+#caixa_branca_floricultura{
+	background: #FFF;
+	padding-top: 30px;
+}
+.alinhar{
+	text-align: left;
+}
+.alinhar td{
+	text-align: left;
+	width: 400px;
+}
+#box_impressao{
+	height: 650px;
+	background: #FFF;	
+	padding-top: 30px;
+}

@@ -1,0 +1,43 @@
+<div id="container">
+	<div id="logo">
+		<%= image_tag "logo.png" %>
+	</div>
+  			<div id="caixa_branca_floricultura">
+  				<h1>Floricultura Floresbela</h1>
+            	<table align="center" id="tabela_floriculturistas">
+				<tr>
+					<th>ID</th>
+					<th>Nome do Contratante</th>
+					<th>Nome do Falecido</th>
+					<th>Telefone de Contato #1</th>
+					<th>Telefone de Contato #2</th>
+					<th>Endereço do Velório</th>
+					<th>Subprefeitura</th>
+					<th>Data do Velório</th>
+					<th>Itens comprados</th>
+					<th>Total</th>
+					<th>Aceitar/Recusar</th>
+				</tr>
+ 
+  				<% @chamados.each do |chamado| %>
+			    <tr>
+			    	<td><%= chamado.id %></td>
+			    	<td><%= chamado.nomec %></td>
+			    	<td><%= chamado.nomef %></td>
+			    	<td><%= chamado.telefone1 %></td>
+			    	<td><%= chamado.telefone2 %></td>
+			    	<td><%= chamado.endvel %></td>
+			    	<td><%= chamado.bairro %></td>
+			    	<td><%= chamado.datahorariovel.strftime("%d/%m, %H:%Mh")%></td>
+			    	<td><%= chamado.itens %></td>
+			    	<td>R$<%= chamado.total %></td>
+			    	<td><button class="accept_button">Aceitar</button><button class="refuse_button">Recusar</button></td>
+			    </tr>
+			  <% end %>
+			</table>
+            </div>
+    </div>
+
+
+
+ 

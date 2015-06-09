@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bairro: MyString
+  subprefeitura: MyString
+
+two:
+  bairro: MyString
+  subprefeitura: MyString
