@@ -3,10 +3,9 @@
 		<%= image_tag "logo.png" %>
 	</div>
 	<%= form_for :chamado, url: chamados_path do |f| %>
-	<div id="selecao_flores">
+	<div class="container_secao" id="selecao_flores">
 		<h1>1. Selecione seus produtos</h1>
 		<div id="lista_produtos">
-
 			<% @produto.each do |produto| %>
 			<div class="moldura_produtos" id='box_<%= produto.id %>'>
 				<h3><%= produto.nomeproduto %></h3>
@@ -22,7 +21,6 @@
 				<input type="hidden" id='nome_<%= produto.id %>' value='<%= produto.nomeproduto %>'>
 			</div>
 			<% end %>
-
 		</div>
 		<div style="clear:both">
 			<h3>Total: <span id="qtd_total"></span><a href="#" onclick="calculaTotal()">
@@ -30,19 +28,18 @@
 				Calcular Total
 			</button></a></h3>
 		</div>
-		<a href="#cadastro">
+		<a href="#cadastro_dados">
 		<button class="big_button">
 			Selecionar
 		</button></a>
 
 	</div>
 
-	<div id="separacao_01"></div>
+	<div id="separador1" class="separador"></div>
 
-	<div id="cadastro_dados">
-		<a id="cadastro"></a>
+	<div class="container_secao" id="cadastro_dados">
 		<h1>2. Preencha os dados</h1>
-		<fieldset class="campo_form">
+		<fieldset>
 			<h2>Dados do Contratante</h2>
 			<p>campos sinalizados com * são obrigatórios</p>
 			<table class="alinhar">
@@ -104,16 +101,15 @@
 
 	</div>
 
-	<div id="separacao_02"></div>
+	<div id="separador2" class="separador"></div>
 
-	<div id="confirmacao_floricultura">
-		<h1>3. Confirme os dados abaixo</h1>
-		<div id="conferir_dados">
-			<a id="confirmacao_floricultura"></a>
-			<fieldset class="campo_form">
+	<div  class="container_secao" id="confirmacao_floricultura">
+		<h1>3. Confirme os dados abaixo</h1>		
+			<fieldset>
 				<h2>Produtos selecionados</h2>
 				<% @produto.each do |produto| %>
-				<span id='moldura_<%= produto.id %>'><strong><%= produto.nomeproduto %>:</strong> <span id='confere_<%= produto.id %>'></span><a href="#selecao_flores"> (Editar)</a>
+				<span id='moldura_<%= produto.id %>'>
+					<strong><%= produto.nomeproduto %>:</strong> <span id='confere_<%= produto.id %>'></span><a href="#selecao_flores"> (Editar)</a>
 					<br>
 				</span>
 				<% end %>
@@ -167,58 +163,11 @@
 					<tr>
 						<td><strong>Forma de Pagamento:</strong></td>
 						<td><span id='c_formapag'></span><a href="#cadastro_dados"> (Editar)</a></td>
-					</tr>
-					
-					
+					</tr>					
 				</table>
 			</fieldset>
 			<input id="chamado_total" name="chamado[total]" type="hidden" />
 			<input id="chamado_itens" name="chamado[itens]" type="hidden" />
-			<%= f.submit 'Finalizar', :class => 'big_button' %>
-
-		</div>
+			<%= f.submit 'Finalizar', :class => 'big_button' %>		
 	</div>
 	<% end %>
-	<script type="text/javascript">
-		function calculaTotal() {
-			var total = 0;
-			<% @produto.each do |produto| %>
-				if(document.getElementById('qtd_'+<%= produto.id %>).value != 0){
-					total = total + parseFloat(document.getElementById('preco_'+<%= produto.id %>).value) * parseInt(document.getElementById('qtd_'+<%= produto.id %>).value);
-				}
-			<% end %>
-				document.getElementById('qtd_total').innerHTML = 'R$' + total;
-				document.getElementById('confere_qtd_total').innerHTML = 'R$' + total;
-				document.getElementById('chamado_total').value = parseFloat(total);
-		}
-		function montaItens() {
-			var str = "";
-			<% @produto.each do |produto| %>
-				if(document.getElementById('qtd_'+<%= produto.id %>).value != 0){
-					str = str + parseInt(document.getElementById('qtd_'+<%= produto.id %>).value) + " x " + document.getElementById('nome_'+<%= produto.id %>).value + "; ";
-				}
-			<% end %>
-				document.getElementById('chamado_itens').value = str;
-		}		
-		function confirmaForm() {
-			<% @produto.each do |produto| %>
-				if(document.getElementById('qtd_'+<%= produto.id %>).value != 0){
-					document.getElementById('confere_'+<%= produto.id %>).innerHTML = document.getElementById('qtd_'+<%= produto.id %>).value;
-				}else{
-					document.getElementById('moldura_'+<%= produto.id %>).innerHTML = "";
-				}
-			<% end %>
-			document.getElementById('c_nomec').innerHTML = document.getElementById('chamado_nomec').value;
-			document.getElementById('c_cpf').innerHTML = document.getElementById('chamado_cpf').value;
-			document.getElementById('c_telefone1').innerHTML = document.getElementById('chamado_telefone1').value;
-			document.getElementById('c_telefone2').innerHTML = document.getElementById('chamado_telefone2').value;
-			document.getElementById('c_nomef').innerHTML = document.getElementById('chamado_nomef').value;
-			document.getElementById('c_endvel').innerHTML = document.getElementById('chamado_endvel').value;
-			document.getElementById('c_bairro').innerHTML = document.getElementById('chamado_bairro').value;
-			document.getElementById('c_datahorariovel').innerHTML = document.getElementById('chamado_datahorariovel_3i').value + "/" + document.getElementById('chamado_datahorariovel_2i').value + "/" + document.getElementById('chamado_datahorariovel_1i').value + " às " + document.getElementById('chamado_datahorariovel_4i').value + "h" + document.getElementById('chamado_datahorariovel_5i').value;
-			document.getElementById('c_nomee').innerHTML = document.getElementById('chamado_nomee').value;
-			document.getElementById('c_formapag').innerHTML = document.getElementById('chamado_formapag').value;
-			calculaTotal();
-			montaItens();
-		}		
-	</script>
