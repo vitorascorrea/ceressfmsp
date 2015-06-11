@@ -1,115 +1,68 @@
-<div id="container">
-		
-            <div id="logo"><%= image_tag "logo.png" %></div>
+<div  class="container_secao">
+	<div id="box_impressao">
+		<h1>Pedido realizado com sucesso!</h1>
+		<div id="conferir_dados">
+			<a id="confirmacao_floricultura"></a>
+			<fieldset class="campo_form">
+				<h2>Itens adquiridos</h2>
+				<%= @chamado.itens %>
+				<h3>Total: R$ <%= @chamado.total %></span></h3>
+				<h2>Dados do Contratante</h2>
+				<table class="alinhar">
+					<tr>
+						<td><strong>Nome Completo (Contratante):</strong></td>
+						<td> <%= @chamado.nomec %> </td>
+					</tr>
+					<tr>
+						<td><strong>CPF:</strong></td>
+						<td> <%= @chamado.cpf %> </td>
+					</tr>
+					<tr>
+						<td><strong>Telefone 1:</strong></td>
+						<td> <%= @chamado.telefone1 %> </td>
+					</tr>
+					<tr>
+						<td><strong>Telefone 2:</strong></td>
+						<td> <%= @chamado.telefone2 %> </td>
+					</tr>
+				</table>
 
-  			<div  class="container_secao">
-  				<div id="box_impressao">
-	            <h1>Pedido realizado com sucesso!</h1>
-	            <div id="conferir_dados">
-	            <a id="confirmacao_floricultura"></a>
-                    <fieldset class="campo_form">
-						<h2>Itens adquiridos</h2>
-						   <%= @chamado.itens %>
-						   <h3>Total: R$ <%= @chamado.total %></span></h3>
-                    	<h2>Dados do Contratante</h2>
-                    	<table class="alinhar">
-                    		<tr>
-                    			<td>
-                    				<strong>Nome Completo (Contratante):</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.nomec %>
-                    			</td>
-                    		</tr>
-                    		<tr>
-                    			<td>
-                    				<strong>CPF:</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.cpf %>
-                    			</td>
-                    		</tr>
-                    		<tr>
-                    			<td>
-                    				<strong>Telefone 1:</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.telefone1 %>
-                    			</td>
-                    		</tr>
-                    		<tr>
-                    			<td>
-                    				<strong>Telefone 2:</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.telefone2 %>
-                    			</td>
-                    		</tr>
-                    	</table>
-	               
-                    	<h2>Dados do Falecido e do Velório</h2>
-	                     <table class="alinhar">
-                    		<tr>
-                    			<td>
-                    				<strong>Nome Completo (Falecido):</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.nomef %>
-                    			</td>
-                    		</tr>
-                    		<tr>
-                    			<td>
-                    				<strong>Endereço do Velório:</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.endvel %>
-                    			</td>
-                    		</tr>
-                    		<tr>
-                    			<td>
-                    				<strong>Bairro:</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.bairro %>
-                    			</td>
-                    		</tr>
-                    		<tr>
-                    			<td>
-                    				<strong>Data e Horário do Velório:</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.datahorariovel.strftime("%d/%m, %H:%M h") %>
-                    			</td>
-                    		</tr>
-                    	</table> 
-                    	
-                    	<h2>Dados do Emitente</h2>
-	                     <table class="alinhar">
-                    		<tr>
-                    			<td>
-                    				<strong>Nome Completo (Emitente):</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.nomee %>
-                    			</td>
-                    		</tr>
-                    		<tr>
-                    			<td>
-                    				<strong>Forma de pagamento:</strong>
-                    			</td>
-                    			<td>
-                    				<%= @chamado.formapag %>
-                    			</td>
-                    		</tr>
-                    	</table>   	
-	               </fieldset>
-            	<button class="big_button" onclick="window.print()">Imprimir</button>  
-            	   
-            </div>                	
-            </div>  
-            </div>
-    </div>
+				<h2>Dados do Falecido e do Velório</h2>
+				<table class="alinhar">
+					<tr>
+						<td><strong>Nome Completo (Falecido):</strong></td>
+						<td> <%= @chamado.nomef %> </td>
+					</tr>
+					<tr>
+						<td><strong>Endereço do Velório:</strong></td>
+						<td> <%= @chamado.endvel %> </td>
+					</tr>
+					<tr>
+						<td><strong>Bairro:</strong></td>
+						<td> <%= @chamado.bairro %> </td>
+					</tr>
+					<tr>
+						<td><strong>Data e Horário do Velório:</strong></td>
+						<td> <%= @chamado.datahorariovel.strftime("%d/%m, %H:%M h") %> </td>
+					</tr>
+				</table>
 
+				<h2>Dados do Emitente</h2>
+				<table class="alinhar">
+					<tr>
+						<td><strong>Nome Completo (Emitente):</strong></td>
+						<td> <%= @chamado.nomee %> </td>
+					</tr>
+					<tr>
+						<td><strong>Forma de pagamento:</strong></td>
+						<td> <%= @chamado.formapag %> </td>
+					</tr>
+				</table>
+			</fieldset>
+			<button class="big_button" onclick="window.print()">
+				Imprimir
+			</button>
 
-
- 
+		</div>
+	</div>
+</div>

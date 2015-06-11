@@ -1,0 +1,66 @@
+<div  class="container_secao" id="confirmacao_floricultura">
+	<h1>3. Confirme os dados abaixo</h1>
+	<fieldset>
+		<h2>Produtos selecionados</h2>
+		<% @produto.each do |produto| %>
+		<span id='moldura_<%= produto.id %>'> <strong><%= produto.nomeproduto %>:</strong> <span id='confere_<%= produto.id %>'></span><a href="#selecao_flores"> (Editar)</a>
+			<br>
+		</span>
+		<% end %>
+		<h3>Total: <span id="confere_qtd_total"></span></h3>
+		<h2>Dados do Contratante</h2>
+		<table class="alinhar">
+			<tr>
+				<td><strong>Nome Completo (Contratante):</strong></td>
+				<td><span id='c_nomec'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+			<tr>
+				<td><strong>CPF:</strong></td>
+				<td><span id='c_cpf'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+			<tr>
+				<td><strong>Telefone 1:</strong></td>
+				<td><span id='c_telefone1'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+			<tr>
+				<td><strong>Telefone 2:</strong></td>
+				<td><span id='c_telefone2'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+		</table>
+
+		<h2>Dados do Falecido e do Velório</h2>
+		<table class="alinhar">
+			<tr>
+				<td><strong>Nome Completo (Falecido):</strong></td>
+				<td><span id='c_nomef'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+			<tr>
+				<td><strong>Endereço do Velório:</strong></td>
+				<td><span id='c_endvel'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+			<tr>
+				<td><strong>Bairro:</strong></td>
+				<td><span id='c_bairro'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+			<tr>
+				<td><strong>Data e Horário do Velório:</strong></td>
+				<td><span id='c_datahorariovel'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+		</table>
+
+		<h2>Dados do Emitente</h2>
+		<table class="alinhar">
+			<tr>
+				<td><strong>Nome Completo (Emitente):</strong></td>
+				<td><span id='c_nomee'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+			<tr>
+				<td><strong>Forma de Pagamento:</strong></td>
+				<td><span id='c_formapag'></span><a href="#cadastro_dados"> (Editar)</a></td>
+			</tr>
+		</table>
+	</fieldset>
+	<input id="chamado_total" name="chamado[total]" type="hidden" />
+	<input id="chamado_itens" name="chamado[itens]" type="hidden" />
+	<%= f.submit 'Finalizar', :class => 'big_button' %>
+</div>

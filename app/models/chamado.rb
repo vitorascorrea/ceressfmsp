@@ -1,4 +1,2 @@
-class Chamado < ActiveRecord::Base 
-  validates :nomec, :nomef, :telefone1, :cpf, :endvel, :datahorariovel, presence: true
-  
+class Chamado < ActiveRecord::Base  
 end

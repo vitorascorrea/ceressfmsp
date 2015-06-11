@@ -1,0 +1,65 @@
+<div class="container_secao" id="cadastro_dados">
+	<h1>2. Preencha os dados</h1>
+	<fieldset>
+		<h2>Dados do Contratante</h2>
+		<p>
+			campos sinalizados com * são obrigatórios
+		</p>
+		<table class="alinhar">
+			<tr>
+				<td><strong>Nome Completo (Contratante) *</strong></td>
+				<td> <%= f.text_field :nomec, :required => true %> </td>
+			</tr>
+			<tr>
+				<td><strong>CPF (Contratante) *</strong></td>
+				<td> <%= f.text_field :cpf, :required => true, :pattern => "^[0-9]{11}$", :title => "Você deve digitar um CPF válido de 11 digítos" %> </td>
+			</tr>
+			<tr>
+				<td><strong>Telefone 1 *</strong></td>
+				<td> <%= f.text_field :telefone1, :required => true, :pattern => "^[0-9]{10,}$", :title => "Você deve digitar um telefone válido com o DDD. Exemplo: 11987654321"  %> </td>
+			</tr>
+			<tr>
+				<td><strong>Telefone 2</strong></td>
+				<td> <%= f.text_field :telefone2, :pattern => "^[0-9]{10,}", :title => "Você deve digitar um telefone válido com o DDD. Exemplo: 11987654321"  %> </td>
+			</tr>
+		</table>
+
+		<h2>Dados do Falecido e do Velório</h2>
+		<table class="alinhar">
+			<tr>
+				<td><strong>Nome Completo (Falecido) *</strong></td>
+				<td> <%= f.text_field :nomef, :required => true  %> </td>
+			</tr>
+			<tr>
+				<td><strong>Endereço do Velório *</strong></td>
+				<td> <%= f.text_field :endvel, :required => true  %> </td>
+			</tr>
+			<tr>
+				<td><strong>Bairro *</strong></td>
+				<td> <%= f.select :bairro, options_for_select(@bairro.collect { |bairro|
+				[bairro.bairro, bairro.subprefeitura] } ), :required => true  %> </td>
+			</tr>
+			<tr>
+				<td><strong>Data e Horário do Velório *</strong></td>
+				<td> <%= f.datetime_select :datahorariovel, :required => true  %> </td>
+			</tr>
+		</table>
+
+		<h2>Dados do Emitente</h2>
+		<table class="alinhar">
+			<tr>
+				<td><strong>Nome Completo (Emitente) *</strong></td>
+				<td> <%= f.text_field :nomee, :required => true  %> </td>
+			</tr>
+			<tr>
+				<td><strong>Forma de Pagamento *</strong></td>
+				<td> <%= f.select :formapag, ['Crédito', 'Débito', 'Dinheiro', 'Convênio'], :required => true  %> </td>
+			</tr>
+		</table>
+	</fieldset>
+	<a href="#confirmacao_floricultura" onclick='confirmaForm()'>
+	<button class="big_button">
+		Continuar
+	</button></a>
+
+</div>

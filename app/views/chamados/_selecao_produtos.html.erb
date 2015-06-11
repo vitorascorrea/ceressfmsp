@@ -1,0 +1,31 @@
+<div class="container_secao" id="selecao_flores">
+	<h1>1. Selecione seus produtos</h1>
+	<div id="lista_produtos">
+		<% @produto.each do |produto| %>
+		<div class="moldura_produtos" id='box_<%= produto.id %>'>
+			<h3><%= produto.nomeproduto %></h3>
+			<h3>R$<%= produto.precoproduto %></h3>
+			<%= image_tag produto.imgproduto, size: "200x200" %>
+			<p>
+				<%= produto.descproduto %>
+			</p>
+			Quantidade:
+			<br />
+			<input class="check_produtos" id='qtd_<%= produto.id %>' type="text" value="0" maxlength="2" pattern="/^d${1,}/" />
+			<input type="hidden" id='preco_<%= produto.id %>' value='<%= produto.precoproduto %>'>
+			<input type="hidden" id='nome_<%= produto.id %>' value='<%= produto.nomeproduto %>'>
+		</div>
+		<% end %>
+	</div>
+	<div style="clear:both">
+		<h3>Total: <span id="qtd_total"></span><a href="#" onclick="calculaTotal()">
+		<button class="accept_button">
+			Calcular Total
+		</button></a></h3>
+	</div>
+	<a id="confirma_escolha" href="#" onclick="verificaSeDigitou()">
+	<button class="big_button">
+		Selecionar
+	</button></a>
+
+</div>
