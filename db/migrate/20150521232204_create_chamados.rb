@@ -9,7 +9,7 @@ class CreateChamados < ActiveRecord::Migration
      t.string :telefone2 
      t.string :nomef 
      t.string :endvel
-     t.string :bairro 
+     t.string :subprefeitura
      t.datetime :datahorariovel
      t.string :nomee
      t.string :formapag

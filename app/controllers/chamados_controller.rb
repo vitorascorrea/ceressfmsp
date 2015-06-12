@@ -18,7 +18,7 @@ class ChamadosController < ApplicationController
   def create
     @produto ||= Produto.all
     @bairro ||= Bairro.all
-    @chamado = Chamado.new(params.require(:chamado).permit(:itens, :total, :nomec, :cpf, :telefone1, :telefone2, :nomef, :endvel, :bairro, :datahorariovel, :nomee, :formapag)) 
+    @chamado = Chamado.new(params.require(:chamado).permit(:itens, :total, :nomec, :cpf, :telefone1, :telefone2, :nomef, :endvel, :subprefeitura, :datahorariovel, :nomee, :formapag)) 
     
     if @chamado.save
       redirect_to @chamado

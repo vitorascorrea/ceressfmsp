@@ -1,0 +1,40 @@
+<%= form_for @floricultura do |f| %>
+<% if @floricultura.errors.any? %>
+	<h2>Ocorreram erros no cadastro:</h2>
+	<ul>
+		<% @floricultura.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<%end%>
+	</ul>
+	<%end%>
+<table class="alinhar">
+			<tr>
+				<td><strong>Email *</strong></td>
+				<td> <%= f.text_field :email, :required => true %> </td>
+			</tr>
+			<tr>
+				<td><strong>Senha *</strong></td>
+				<td> <%= f.text_field :password, :required => true %></td>
+			</tr>
+			<tr>
+				<td><strong>Confirmar Senha *</strong></td>
+				<td> <%= f.text_field :password_confirmation, :required => true  %> </td>
+			</tr>
+			<tr>
+				<td><strong>Nome da Floricultura</strong></td>
+				<td> <%= f.text_field :nomefloricultura, :required => true  %> </td>
+			</tr>
+			<tr>
+				<td><strong>Endereço da Floricultura</strong></td>
+				<td> <%= f.text_field :endfloricultura, :required => true  %> </td>
+			</tr>
+			<tr>
+				<td><strong>Bairro *</strong></td>
+				<td> <%= f.select :subprefeitura, options_for_select(@bairro.collect { |bairro|
+				[bairro.bairro, bairro.subprefeitura] } ), :required => true  %> </td>
+			</tr>
+			<tr>
+				<td><%= f.submit %></td>
+			</tr>
+		</table>
+		<% end %>

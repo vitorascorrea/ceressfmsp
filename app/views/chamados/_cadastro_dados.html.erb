@@ -36,7 +36,7 @@
 			</tr>
 			<tr>
 				<td><strong>Bairro *</strong></td>
-				<td> <%= f.select :bairro, options_for_select(@bairro.collect { |bairro|
+				<td> <%= f.select :subprefeitura, options_for_select(@bairro.collect { |bairro|
 				[bairro.bairro, bairro.subprefeitura] } ), :required => true  %> </td>
 			</tr>
 			<tr>

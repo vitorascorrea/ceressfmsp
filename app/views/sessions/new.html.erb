@@ -1,0 +1,18 @@
+<div class="container_secao">
+	<div id="caixa_login">
+		<%= form_tag(sessions_path) do %>
+		<table class="alinhar" align="center">
+			<th><h2>Formulario de Login</h2></th>
+			<tr>
+				<td><strong>Email:</strong></td>
+				<td> <%= text_field_tag :email, params[:email] %> </td>
+			</tr>
+			<tr>
+				<td><strong>Password:</strong></td>
+				<td> <%= password_field_tag :password %> </td>
+			</tr>
+		</table>
+		<strong><%= submit_tag "Logar", :class => 'big_button' %></strong>
+		<% end %>
+	</div>
+</div>
