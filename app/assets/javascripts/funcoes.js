@@ -1,10 +1,11 @@
+//Função que verifica se foi selecionado algum produto com quantidade > 0
 function verificaSeDigitou(){
 	var itens = document.getElementsByClassName("moldura_produtos");
 	var aux = 0;
 	var link = document.getElementById('confirma_escolha');
 	var aux2 = true;
 	for(var i = 1; i <= itens.length; i++){
-		if(parseInt(document.getElementById('qtd_'+i).value) == 0){
+		if(parseInt(document.getElementById('qtd_'+i).value) <= 0){
 			aux++;
 		}
 		if(isNaN(parseInt(document.getElementById('qtd_'+i).value))){
@@ -30,7 +31,7 @@ function calculaTotal() {
 					document.getElementById('confere_qtd_total').innerHTML = 'Não é um numero';					
 					return;
 				}
-				if(document.getElementById('qtd_'+i).value != 0){
+				if(document.getElementById('qtd_'+i).value >= 0){
 					total = total + parseFloat(document.getElementById('preco_'+i).value) * parseInt(document.getElementById('qtd_'+i).value);
 					str = str + parseInt(document.getElementById('qtd_'+i).value) + " x " + document.getElementById('nome_'+i).value + "; ";
 					document.getElementById('confere_'+i).innerHTML = document.getElementById('qtd_'+i).value + " unidade(s)";
