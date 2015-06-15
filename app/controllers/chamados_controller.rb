@@ -1,5 +1,5 @@
 class ChamadosController < ApplicationController
- 
+ before_filter :authorize, only: [:new]
   def index
     @chamados = Chamado.all
   end
