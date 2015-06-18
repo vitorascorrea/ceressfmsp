@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(version: 20150612193223) do
     t.datetime "datahorariovel"
     t.string   "nomee"
     t.string   "formapag"
-    t.string   "status",         default: "Aberto"
+    t.string   "status",                 default: "Aberto"
+    t.string   "floricultura_escolhida"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150612193223) do
     t.string   "nomefloricultura"
     t.string   "endfloricultura"
     t.string   "subprefeitura"
+    t.integer  "posicao"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

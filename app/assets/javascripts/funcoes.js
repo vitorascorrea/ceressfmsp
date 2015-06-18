@@ -55,7 +55,7 @@ function confirmaForm() {
 			document.getElementById('c_telefone2').innerHTML = document.getElementById('chamado_telefone2').value;
 			document.getElementById('c_nomef').innerHTML = document.getElementById('chamado_nomef').value;
 			document.getElementById('c_endvel').innerHTML = document.getElementById('chamado_endvel').value;
-			document.getElementById('c_bairro').innerHTML = document.getElementById('chamado_bairro').value;
+			document.getElementById('c_bairro').innerHTML = document.getElementById('chamado_subprefeitura').value;
 			document.getElementById('c_datahorariovel').innerHTML = document.getElementById('chamado_datahorariovel_3i').value + "/" + document.getElementById('chamado_datahorariovel_2i').value + "/" + document.getElementById('chamado_datahorariovel_1i').value + " às " + document.getElementById('chamado_datahorariovel_4i').value + "h" + document.getElementById('chamado_datahorariovel_5i').value;
 			document.getElementById('c_nomee').innerHTML = document.getElementById('chamado_nomee').value;
 			document.getElementById('c_formapag').innerHTML = document.getElementById('chamado_formapag').value;

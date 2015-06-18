@@ -14,8 +14,8 @@ class CreateChamados < ActiveRecord::Migration
      t.string :nomee
      t.string :formapag
      t.string :status, :default => "Aberto"
-     t.timestamps
-      
+     t.string :floricultura_escolhida
+     t.timestamps      
     end
   end
 end

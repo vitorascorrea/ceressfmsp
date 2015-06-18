@@ -6,6 +6,7 @@ class CreateFloriculturas < ActiveRecord::Migration
       t.string :nomefloricultura
       t.string :endfloricultura
       t.string :subprefeitura
+      t.integer :posicao
       t.timestamps
     end
   end

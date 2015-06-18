@@ -16,9 +16,7 @@ class FloriculturasController < ApplicationController
   
   def show
     @floricultura = Floricultura.find(params[:id])
-    @chamados = Chamado.where(:subprefeitura => @floricultura.subprefeitura)
+    @abertos = Chamado.where(:floricultura_escolhida => @floricultura.id, :status => "Aberto")
   end
-  
-  
   
 end

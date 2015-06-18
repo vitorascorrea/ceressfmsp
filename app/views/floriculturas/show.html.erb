@@ -13,10 +13,11 @@
 			<th>Data do Velório</th>
 			<th>Itens comprados</th>
 			<th>Total</th>
+			<th>Tempo até expirar o chamado</th>
 			<th>Aceitar/Recusar</th>
 		</tr>
 
-		<% @chamados.each do |chamado| %>
+		<% @abertos.each do |chamado| %>
 		<tr>
 			<td><%= chamado.id %></td>
 			<td><%= chamado.nomec %></td>
@@ -28,6 +29,7 @@
 			<td><%= chamado.datahorariovel.strftime("%d/%m, %H:%Mh")%></td>
 			<td><%= chamado.itens %></td>
 			<td>R$<%= chamado.total %></td>
+			<td>00:00:00</td>
 			<td>
 			<button class="accept_button">
 				Aceitar

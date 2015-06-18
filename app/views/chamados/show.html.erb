@@ -1,4 +1,7 @@
 <div  class="container_secao">
+	<%flash.each do |nome, msg|%>
+			<%= content_tag :div, msg, id: "flash_#{nome}"%>
+		<% end %>
 	<div id="box_impressao">
 		<h1>Pedido realizado com sucesso!</h1>
 		<div id="conferir_dados">
