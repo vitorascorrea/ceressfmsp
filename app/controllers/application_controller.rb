@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 private
   
   def current_user
-    @current_user ||= Floricultura.find(session[:floricultura_id]) if session[:floricultura_id]
+    @current_user ||= Usuario.find(session[:usuario_id]) if session[:usuario_id]
   end
   helper_method :current_user
   

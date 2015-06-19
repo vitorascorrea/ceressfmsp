@@ -3,11 +3,12 @@ class Chamado < ActiveRecord::Base
   
   #Algoritmo de seleção de floricultura
   def selecionaFloricultura
+    moveFloriculturas
     #Extrai array de objetos pelo select
     @floriculturas = Floricultura.where(:subprefeitura => self.subprefeitura, :posicao => 1)
     #Selecionamos a primeira posição (first) e depois selecionamos o ID
     id_floricultura = @floriculturas.first.id
-    moveFloriculturas
+    
     return id_floricultura
   end
   
@@ -15,10 +16,8 @@ class Chamado < ActiveRecord::Base
   def moveFloriculturas
     @floriculturas = Floricultura.all    
     @floriculturas.each do |i|
-      if(i.posicao == -1)
-        next
-      elsif(i.posicao == 1)
-        i.update_attribute(:posicao, @floriculturas.length-1)
+      if(i.posicao == 1)
+        i.update_attribute(:posicao, @floriculturas.length)
       elsif
         i.update_attribute(:posicao, i.posicao-1)
       end

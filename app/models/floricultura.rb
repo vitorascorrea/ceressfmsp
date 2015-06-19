@@ -1,4 +1,3 @@
 class Floricultura < ActiveRecord::Base
-  has_many :chamados
-  has_secure_password
+  has_many :chamados  
 end

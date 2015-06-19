@@ -3,14 +3,15 @@ class SessionsController < ApplicationController
   end
 
   def create
+    usuario = Usuario.find_by_email(params[:email])
     floricultura = Floricultura.find_by_email(params[:email])
-    if floricultura && floricultura.authenticate(params[:password])
-      session[:floricultura_id] = floricultura.id
+    if usuario && usuario.authenticate(params[:password])
+      session[:usuario_id] = usuario.id
       
-      if floricultura.email != "agenciador"
-        redirect_to floricultura
+      if usuario.tipo == "agenciador"
+        redirect_to venda_url
       else         
-        redirect_to venda_url 
+        redirect_to floricultura 
       end      
            
     else
@@ -20,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:floricultura_id] = nil
+    session[:usuario_id] = nil
     redirect_to root_url
   end
 end

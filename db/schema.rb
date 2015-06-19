@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612193223) do
+ActiveRecord::Schema.define(version: 20150618234219) do
 
   create_table "bairros", force: true do |t|
     t.string   "bairro"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20150612193223) do
 
   create_table "floriculturas", force: true do |t|
     t.string   "email"
-    t.string   "password_digest"
     t.string   "nomefloricultura"
     t.string   "endfloricultura"
     t.string   "subprefeitura"
@@ -55,6 +54,14 @@ ActiveRecord::Schema.define(version: 20150612193223) do
     t.text     "descproduto"
     t.float    "precoproduto"
     t.string   "imgproduto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usuarios", force: true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "tipo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

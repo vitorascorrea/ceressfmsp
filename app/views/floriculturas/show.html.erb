@@ -31,12 +31,9 @@
 			<td>R$<%= chamado.total %></td>
 			<td>00:00:00</td>
 			<td>
-			<button class="accept_button">
-				Aceitar
-			</button>
-			<button class="refuse_button">
-				Recusar
-			</button></td>
+			<%=button_to "Aceitar", :controller => :floriculturas, :action => :aceitar, :chamado => chamado.id, :id => @floricultura.id %>
+			<%=button_to "Recusar", :controller => :floriculturas, :action => :recusar, :chamado => chamado.id, :id => @floricultura.id %>
+			</td>
 		</tr>
 		<% end %>
 	</table>
