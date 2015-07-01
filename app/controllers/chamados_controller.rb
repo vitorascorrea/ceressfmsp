@@ -6,7 +6,6 @@ class ChamadosController < ApplicationController
   
   def show
     @chamado = Chamado.find(params[:id])
-    @chamados = Chamado.all
   end
   
   def new
@@ -16,8 +15,6 @@ class ChamadosController < ApplicationController
   end
   
   def create
-    @produto ||= Produto.all
-    @bairro ||= Bairro.all
     #Cria o chamado com os dados entrados no formulario, exceto a floricultura que será escolhida a seguir
     @chamado = Chamado.new(params.require(:chamado).permit(:itens, :total, :nomec, :cpf, :telefone1, :telefone2, :nomef, :endvel, :subprefeitura, :datahorariovel, :nomee, :formapag, :floricultura_escolhida))
     
@@ -33,11 +30,4 @@ class ChamadosController < ApplicationController
       render 'new'
     end    
   end
-  
-  private
-
-    def chamado_params
-      params.require(:user).permit(:status)
-    end
-  
 end
