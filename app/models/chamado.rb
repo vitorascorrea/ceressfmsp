@@ -1,5 +1,6 @@
 class Chamado < ActiveRecord::Base  
   has_one :floricultura
+  has_many :produtos
   
   #Algoritmo de seleção de floricultura
   def selecionaFloricultura

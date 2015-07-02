@@ -1,17 +1,19 @@
-<%= form_for @floricultura do |f| %>
-<% if @floricultura.errors.any? %>
-	<h2>Ocorreram erros no cadastro:</h2>
-	<ul>
-		<% @floricultura.errors.full_messages.each do |message| %>
-		<li><%= message %></li>
-		<%end%>
-	</ul>
-	<%end%>
+<%= form_for @floricultura do |f| %>	
 <table class="alinhar">
 			<tr>
 				<td><strong>Email *</strong></td>
 				<td> <%= f.text_field :email, :required => true %> </td>
-			</tr>			
+			</tr>
+			<%= fields_for @usuario do |u|%>
+				<tr>
+					<td><strong>Senha *</strong></td>
+					<td> <%= u.text_field :password, :required => true %></td>
+				</tr>
+				<tr>
+					<td><strong>Confirmar Senha *</strong></td>
+					<td> <%= u.text_field :password_confirmation, :required => true  %> </td>
+				</tr>
+			<% end %>
 			<tr>
 				<td><strong>Nome da Floricultura</strong></td>
 				<td> <%= f.text_field :nomefloricultura, :required => true  %> </td>
@@ -26,6 +28,7 @@
 				[bairro.bairro, bairro.subprefeitura] } ), :required => true  %> </td>
 			</tr>
 			<tr>
+				<%= f.hidden_field :tipo, :value => "floricultura" %>
 				<td><%= f.submit %></td>
 			</tr>
 		</table>

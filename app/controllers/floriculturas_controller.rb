@@ -2,18 +2,23 @@ class FloriculturasController < ApplicationController
   
   def new
     @floricultura = Floricultura.new
+    @usuario = Usuario.new
     @bairro = Bairro.all
   end
   
-  def create
+  def create 
+    @bairro = Bairro.all
     @floricultura = Floricultura.new(params.require(:floricultura).permit(:email, :nomefloricultura, :endfloricultura, :subprefeitura))
+    @usuario = Usuario.new(params.require(:usuario).permit(:password, :password_confirmation))
+    @usuario.email = @floricultura.email
+    @usuario.tipo = "floricultura"    
     
-    if @floricultura.save
+    if @floricultura.save && @usuario.save
       redirect_to @floricultura
     else
       render 'new'
     end
-  end  
+  end
   
   def show
     @floricultura = Floricultura.find(params[:id])
